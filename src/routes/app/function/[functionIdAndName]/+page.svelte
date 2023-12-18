@@ -16,6 +16,7 @@
 	import { Toast } from '$lib/toasts';
 	import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 	import FormBtn from '$lib/components/app/main/FormBtn.svelte';
+	import FormInput from '$lib/components/app/main/FormInput.svelte';
 
 	let previousFunctionIdAndName = $page.params.functionIdAndName; // non-reactive by $page store
 	$: functionIdAndName = $page.params.functionIdAndName;
@@ -177,14 +178,7 @@
 	{#if !pageLoading}
 		{#each apiFunction.functionKeys as item, i}
 			<label for={item.key}>{item.key}</label>
-			<input
-				class="border-black border rounded px-1"
-				type="text"
-				id={item.key}
-				name={item.key}
-				placeholder={item.hint}
-				required={item.required}
-			/>
+			<FormInput id={item.key} name={item.key} placeholder={item.hint} required={item.required} />
 		{:else}
 			<div class="flex w-full justify-center">
 				<Loader size={48} color="rgb(249 115 22)" />

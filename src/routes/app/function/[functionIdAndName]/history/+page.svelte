@@ -12,6 +12,7 @@
 	import { extractFunctionIdAndName } from '$lib/util';
 	import { doc, onSnapshot } from 'firebase/firestore';
 	import { onDestroy } from 'svelte';
+	import FormInput from '$lib/components/app/main/FormInput.svelte';
 
 	const functionIdAndName = $page.params.functionIdAndName;
 	const [functionId, functionName] = extractFunctionIdAndName(functionIdAndName);
@@ -95,18 +96,16 @@
 				<form slot="content" class="flex flex-col">
 					{#if loadedHistories[item.date]}
 						<!-- content here -->
-						<label for="">Function:</label>
-						<input
-							class="border-black border rounded px-1"
-							type="text"
+						<label for="function-name">Function:</label>
+						<FormInput
+							id="function-name"
+							name="function-name"
 							value={loadedHistories[item.date].functionName}
 							disabled
 						/>
 						{#each Object.entries(loadedHistories[item.date].call) as [key, value], i}
 							<label for={`${key}_${i}`}>{key}:</label>
-							<input
-								class="border-black border rounded px-1"
-								type="text"
+							<FormInput
 								id={`${key}_${i}`}
 								name={`${key}_${i}`}
 								{value}

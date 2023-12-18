@@ -21,6 +21,7 @@
 	import type { MoodleHistoryItem } from '$lib/types';
 	import { getBlob, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 	import FormBtn from '$lib/components/app/main/FormBtn.svelte';
+	import FormInput from '$lib/components/app/main/FormInput.svelte';
 
 	const functionIdAndName = $page.params.functionIdAndName;
 	const [functionId, functionName] = extractFunctionIdAndName(functionIdAndName);
@@ -96,13 +97,7 @@
 	<strong>{functionName}</strong> to:
 </h2>
 <form class="flex flex-col gap-4 mt-5 w-full" on:submit|preventDefault={handleSubmit}>
-	<input
-		bind:value={userEmailToExport}
-		class="border-black border rounded px-1"
-		placeholder="user@example.com"
-		type="text"
-		required
-	/>
+	<FormInput bind:value={userEmailToExport} placeholder="user@example.com" required />
 	<div class="flex gap-4">
 		<label for="history-share">Share history?</label>
 		<input

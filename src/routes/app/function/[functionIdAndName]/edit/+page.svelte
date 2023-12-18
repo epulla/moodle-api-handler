@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import Loader from '$lib/components/Loader.svelte';
 	import FormBtn from '$lib/components/app/main/FormBtn.svelte';
+	import FormInput from '$lib/components/app/main/FormInput.svelte';
 	import Title from '$lib/components/app/main/Title.svelte';
 	import { FUNCTION_ID_NAME_SEPARATOR } from '$lib/constants';
 	import { db } from '$lib/firebase';
@@ -38,7 +39,7 @@
 
 	$: if ($userDoc && !unsubscribe) {
 		if (!$userDoc.functions || !$userDoc.functions.includes(functionIdAndName)) {
-			Toast.error(`Function ${functionIdAndName} does not exist`)
+			Toast.error(`Function ${functionIdAndName} does not exist`);
 			goto(`/app/function/not-found?functionName=${functionIdAndName}`);
 		}
 		unsubscribe = onSnapshot(
@@ -92,7 +93,7 @@
 	};
 	const removeKey = (i: number) => {
 		apiFunction.functionKeys.splice(i, 1);
-		apiFunction = apiFunction
+		apiFunction = apiFunction;
 	};
 </script>
 
@@ -103,10 +104,8 @@
 	</div>
 {:else}
 	<form on:submit|preventDefault={handleSubmit} class="flex flex-col gap-4">
-		<input
+		<FormInput
 			bind:value={functionName}
-			class="border-black border rounded px-1"
-			type="text"
 			id="function"
 			name="function"
 			placeholder="Function name"
@@ -115,22 +114,19 @@
 		{#each apiFunction.functionKeys as items, i}
 			<div class="flex flex-col gap-2 border-b border-b-slate-400 pb-4">
 				<label for="key_{i + 1}">Key {i + 1}:</label>
-				<input
+				<FormInput
 					bind:value={items.key}
-					class="border-black border rounded px-1"
-					type="text"
 					id="key_name_{i + 1}"
 					name="key_name_{i + 1}"
 					placeholder="Key name"
 					required
 				/>
-				<input
+				<FormInput
 					bind:value={items.hint}
-					class="border-black border rounded px-1"
-					type="text"
 					id="hint_{i + 1}"
 					name="hint_{i + 1}"
 					placeholder="Write a hint for the value"
+					required
 				/>
 				<label for="required_{i}" class="flex items-center gap-3">
 					Required

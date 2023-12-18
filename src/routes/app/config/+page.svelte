@@ -75,9 +75,9 @@
 </Title>
 <form on:submit|preventDefault={handleSubmit} class="flex flex-col gap-2" action="">
 	<label for="host">Host:</label>
-	<FormInput bind:value={appConfig.host} id="host" name="host" />
+	<FormInput bind:value={appConfig.host} id="host" name="host" required />
 	<label for="token">Token:</label>
-	<FormInput bind:value={appConfig.token} id="token" name="token" />
+	<FormInput bind:value={appConfig.token} id="token" name="token" required />
 	<div class="flex justify-center py-3">
 		<FormBtn {loading}>Save</FormBtn>
 	</div>

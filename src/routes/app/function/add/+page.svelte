@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import FormBtn from '$lib/components/app/main/FormBtn.svelte';
+	import FormInput from '$lib/components/app/main/FormInput.svelte';
 	import Title from '$lib/components/app/main/Title.svelte';
 	import { FUNCTION_ID_NAME_SEPARATOR } from '$lib/constants';
 	import { db } from '$lib/firebase';
@@ -31,14 +32,13 @@
 				functionName,
 				functionKeys
 			});
-			const functionUrl = `${functionRef.id}${FUNCTION_ID_NAME_SEPARATOR}${functionName}`
+			const functionUrl = `${functionRef.id}${FUNCTION_ID_NAME_SEPARATOR}${functionName}`;
 			await updateDoc(doc(db, 'users', $userDoc!.uid), {
 				functions: arrayUnion(functionUrl)
 			});
 			loading = false;
-			Toast.success(`Function ${functionName} was added!`)
-			goto(`/app/function/${functionUrl}`)
-			
+			Toast.success(`Function ${functionName} was added!`);
+			goto(`/app/function/${functionUrl}`);
 		} catch (error) {
 			console.error(error);
 		}
@@ -64,10 +64,8 @@
 
 <Title>Add API page</Title>
 <form on:submit|preventDefault={handleSubmit} class="flex flex-col gap-4">
-	<input
+	<FormInput
 		bind:value={functionName}
-		class="border-black border rounded px-1"
-		type="text"
 		id="function"
 		name="function"
 		placeholder="Function name"
@@ -76,19 +74,15 @@
 	{#each functionKeys as items, i}
 		<div class="flex flex-col gap-2 border-b border-b-slate-400 pb-4">
 			<label for="key_{i + 1}">Key {i + 1}:</label>
-			<input
+			<FormInput
 				bind:value={items.key}
-				class="border-black border rounded px-1"
-				type="text"
 				id="key_name_{i + 1}"
 				name="key_name_{i + 1}"
 				placeholder="Key name"
 				required
 			/>
-			<input
+			<FormInput
 				bind:value={items.hint}
-				class="border-black border rounded px-1"
-				type="text"
 				id="hint_{i + 1}"
 				name="hint_{i + 1}"
 				placeholder="Write a hint for the value"
