@@ -1,8 +1,10 @@
 <script lang="ts">
-	import FormBtn from '$lib/components/FormBtn.svelte';
+	import FormBtn from '$lib/components/app/main/FormBtn.svelte';
+	import FormInput from '$lib/components/app/main/FormInput.svelte';
 	import Title from '$lib/components/app/main/Title.svelte';
 	import { db } from '$lib/firebase';
 	import { user, userDoc } from '$lib/stores/user';
+	import { Toast } from '$lib/toasts';
 	import { doc, setDoc } from 'firebase/firestore';
 
 	let appConfig = {
@@ -53,7 +55,9 @@
 				{ merge: true }
 			);
 			loading = false;
+			Toast.success('Config saved!');
 		} catch (error) {
+			Toast.error('An error has occurred');
 			console.error(error);
 		}
 	};
@@ -71,23 +75,9 @@
 </Title>
 <form on:submit|preventDefault={handleSubmit} class="flex flex-col gap-2" action="">
 	<label for="host">Host:</label>
-	<input
-		bind:value={appConfig.host}
-		class="border-black border rounded"
-		type="text"
-		id="host"
-		name="host"
-		required
-	/>
+	<FormInput bind:value={appConfig.host} id="host" name="host" />
 	<label for="token">Token:</label>
-	<input
-		bind:value={appConfig.token}
-		class="border-black border rounded"
-		type="text"
-		id="token"
-		name="token"
-		required
-	/>
+	<FormInput bind:value={appConfig.token} id="token" name="token" />
 	<div class="flex justify-center py-3">
 		<FormBtn {loading}>Save</FormBtn>
 	</div>

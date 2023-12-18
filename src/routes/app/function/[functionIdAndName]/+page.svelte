@@ -9,13 +9,13 @@
 	import Loader from '$lib/components/Loader.svelte';
 	import type { MoodleFunction, MoodleFunctionCall, MoodleHistoryItem } from '$lib/types';
 	import { requestMoodle } from '$lib/moodle';
-	import FormBtn from '$lib/components/FormBtn.svelte';
 	import { createBlobFromMoodleFunctionCall, extractFunctionIdAndName } from '$lib/util';
 	import ThreeDotsIcon from '$lib/icons/ThreeDotsIcon.svelte';
 	import HistoryIcon from '$lib/icons/HistoryIcon.svelte';
 	import { MAX_HISTORY_RECORDS } from '$lib/constants';
 	import { Toast } from '$lib/toasts';
 	import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+	import FormBtn from '$lib/components/app/main/FormBtn.svelte';
 
 	let previousFunctionIdAndName = $page.params.functionIdAndName; // non-reactive by $page store
 	$: functionIdAndName = $page.params.functionIdAndName;

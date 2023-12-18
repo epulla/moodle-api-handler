@@ -15,12 +15,12 @@
 	import { db, storage } from '$lib/firebase';
 	import { user, userDoc } from '$lib/stores/user';
 	import { extractFunctionIdAndName } from '$lib/util';
-	import FormBtn from '$lib/components/FormBtn.svelte';
 	import { FUNCTION_ID_NAME_SEPARATOR } from '$lib/constants';
 	import Toastify from 'toastify-js';
 	import { Toast } from '$lib/toasts';
 	import type { MoodleHistoryItem } from '$lib/types';
 	import { getBlob, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+	import FormBtn from '$lib/components/app/main/FormBtn.svelte';
 
 	const functionIdAndName = $page.params.functionIdAndName;
 	const [functionId, functionName] = extractFunctionIdAndName(functionIdAndName);

@@ -1,6 +1,6 @@
 <script lang="ts">
+	import Loader from '$lib/components/Loader.svelte';
 	import { createEventDispatcher } from 'svelte';
-	import Loader from './Loader.svelte';
 
 	export let loading: boolean;
 	export let bgColor = 'rgb(249 115 22)';

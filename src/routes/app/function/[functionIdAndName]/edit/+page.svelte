@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import FormBtn from '$lib/components/FormBtn.svelte';
 	import Loader from '$lib/components/Loader.svelte';
+	import FormBtn from '$lib/components/app/main/FormBtn.svelte';
 	import Title from '$lib/components/app/main/Title.svelte';
 	import { FUNCTION_ID_NAME_SEPARATOR } from '$lib/constants';
 	import { db } from '$lib/firebase';

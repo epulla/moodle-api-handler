@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import FormBtn from '$lib/components/FormBtn.svelte';
+	import FormBtn from '$lib/components/app/main/FormBtn.svelte';
 	import Title from '$lib/components/app/main/Title.svelte';
 	import { db, storage } from '$lib/firebase';
 	import { userDoc } from '$lib/stores/user';
