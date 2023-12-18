@@ -11,9 +11,6 @@ dependencies:
   firebase:
     specifier: ^10.7.0
     version: 10.7.1
-  lz-string:
-    specifier: ^1.5.0
-    version: 1.5.0
   toastify-js:
     specifier: ^1.12.0
     version: 1.12.0
@@ -2496,11 +2493,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
-
-  /lz-string@1.5.0:
-    resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
-    hasBin: true
-    dev: false
 
   /magic-string@0.30.5:
     resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==}
