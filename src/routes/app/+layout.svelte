@@ -6,7 +6,7 @@
 	import { user, userDoc } from '$lib/stores/user';
 	import { goto } from '$app/navigation';
 	import { onDestroy, onMount } from 'svelte';
-	import { addDoc, collection, doc, onSnapshot, setDoc } from 'firebase/firestore';
+	import { doc, onSnapshot, setDoc } from 'firebase/firestore';
 	import type { UserDoc } from '$lib/types';
 
 	onMount(() => {
@@ -51,7 +51,7 @@
 	<aside class="[grid-area:aside] bg-slate-100 py-5 overflow-auto">
 		<Aside></Aside>
 	</aside>
-	<main class="[grid-area:main] p-5 overflow-auto">
+	<main class="[grid-area:main] px-36 pt-9 overflow-auto">
 		<slot />
 	</main>
 </div>
