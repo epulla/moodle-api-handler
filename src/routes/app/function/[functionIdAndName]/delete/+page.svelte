@@ -32,7 +32,7 @@
 		});
 
 		loading = false;
-		Toast.warn(`Function ${functionName} was deleted`);
+		Toast.success(`Function ${functionName} was deleted`);
 		goto('/app');
 	};
 </script>
