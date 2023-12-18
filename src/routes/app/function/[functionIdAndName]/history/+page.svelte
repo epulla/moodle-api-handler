@@ -50,7 +50,13 @@
 						apiFunction = {
 							name: functionName,
 							...apiFunctionSnapshot.data(),
-							history: apiFunctionSnapshot.data().history ?? []
+							history: apiFunctionSnapshot.data().history
+								? apiFunctionSnapshot
+										.data()
+										.history.toSorted(
+											(a: any, b: any) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+										)
+								: []
 						} as MoodleFunction;
 						loading = false;
 					} else {
@@ -77,7 +83,7 @@
 		<Loader size={48} color="rgb(249 115 22)" />
 	</div>
 {:else}
-	<h2 class="text-xl">Last {MAX_HISTORY_RECORDS} calls:</h2>
+	<h2 class="text-xl">Last {MAX_HISTORY_RECORDS} calls: (Newest to Oldest)</h2>
 	<Accordion>
 		{#each apiFunction.history as item, i}
 			<AccordionItem on:click={() => loadHistoryFileContent(item)}>
