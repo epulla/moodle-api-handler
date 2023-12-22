@@ -2,7 +2,6 @@
 	xmlns="http://www.w3.org/2000/svg"
 	x="0px"
 	y="0px"
-    stroke="currentColor"
     fill="currentColor"
 	width="24"
 	height="24"
