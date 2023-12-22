@@ -55,7 +55,7 @@
 		<Aside></Aside>
 	</aside>
 	<main class="[grid-area:main] overflow-auto">
-		<div class="w-full max-w-3xl mx-auto px-6 pt-9">
+		<div class="w-full h-full max-w-3xl mx-auto px-6 pt-9">
 			<slot />
 		</div>
 	</main>
