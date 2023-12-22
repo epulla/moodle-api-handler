@@ -1,6 +1,7 @@
 <script lang="ts">
 	const headerBarLinks: { title: string; url: string }[] = [
 		{ title: 'Home', url: '/' },
+		{ title: 'Docs', url: '/docs' },
 		{ title: 'Login', url: '/auth/login' }
 	];
 </script>
