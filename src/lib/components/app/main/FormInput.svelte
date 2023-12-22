@@ -10,7 +10,7 @@
 
 <input
 	bind:value
-	class="border-black border rounded px-1"
+	class="border-slate-400 border rounded px-1"
 	type="text"
 	{id}
 	{name}
