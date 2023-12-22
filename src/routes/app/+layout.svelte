@@ -8,6 +8,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { doc, onSnapshot, setDoc } from 'firebase/firestore';
 	import type { UserDoc } from '$lib/types';
+	import { isMenuOpen } from '$lib/stores/header';
 
 	onMount(() => {
 		const unsubscribe = onAuthStateChanged(auth, (authUser) => {
@@ -31,11 +32,13 @@
 			} else {
 				setDoc(doc(db, `users`, $user!.uid), {
 					email: $user!.email,
-					functions: []	
-				})
+					functions: []
+				});
 			}
 		});
 	}
+
+	$: openMenuClass = $isMenuOpen ? 'active' : '';
 
 	onDestroy(() => {
 		if (unsubscribe) {
@@ -48,10 +51,10 @@
 	<header class="[grid-area:header]">
 		<Header></Header>
 	</header>
-	<aside class="[grid-area:aside] bg-slate-100 py-5 overflow-auto">
+	<aside id="menu" class="[grid-area:aside] bg-slate-100 py-5 overflow-auto {openMenuClass}">
 		<Aside></Aside>
 	</aside>
-	<main class="[grid-area:main] px-36 pt-9 overflow-auto">
+	<main class="[grid-area:main] w-full max-w-3xl mx-auto px-6 pt-9 overflow-auto">
 		<slot />
 	</main>
 </div>
@@ -66,5 +69,29 @@
 			'aside main main';
 		grid-template-columns: 200px auto;
 		grid-template-rows: 50px auto;
+	}
+
+	@media (max-width: 640px) {
+		#app {
+			grid-template-areas:
+				'header header header'
+				'aside aside aside'
+				'main main main'
+				'main main main';
+			/* grid-template-columns: 200px auto; */
+			grid-template-rows: 50px auto;
+		}
+
+		#menu {
+			height: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		#menu.active {
+			height: 100%;
+			padding-top: 1.25rem;
+			padding-bottom: 1.25rem;
+		}
 	}
 </style>

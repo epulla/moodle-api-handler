@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Loader from '$lib/components/Loader.svelte';
+	import HamburgerIcon from '$lib/icons/HamburgerIcon.svelte';
 	import { auth } from '$lib/firebase';
 	import { user, userDoc } from '$lib/stores/user';
 	import { signOut } from 'firebase/auth';
 	import { onMount } from 'svelte';
+	import { isMenuOpen } from '$lib/stores/header';
 
 	let isUserMenuToggled = false;
 	$: isOpenClass = isUserMenuToggled ? 'is-open' : '';
@@ -31,7 +33,11 @@
 </script>
 
 <div class="relative flex h-full justify-between items-center px-5 bg-orange-500 shadow-xl">
-	<div></div>
+	<div class="flex items-center">
+		<button class="sm:hidden text-white" on:click={() => ($isMenuOpen = !$isMenuOpen)}>
+			<HamburgerIcon></HamburgerIcon>
+		</button>
+	</div>
 	<div class="relative flex justify-center items-center">
 		<button
 			id="user-btn"
