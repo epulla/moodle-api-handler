@@ -17,6 +17,7 @@
 	import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 	import FormBtn from '$lib/components/app/main/FormBtn.svelte';
 	import FormInput from '$lib/components/app/main/FormInput.svelte';
+	import ArrowIcon from '$lib/icons/ArrowLeftIcon.svelte';
 
 	let previousFunctionIdAndName = $page.params.functionIdAndName; // non-reactive by $page store
 	$: functionIdAndName = $page.params.functionIdAndName;
@@ -36,7 +37,8 @@
 	const handleSubmit = async (e: any) => {
 		submitLoading = true;
 		if (!$userDoc || !$userDoc.config) {
-			responseString = 'No config found, please set up a config host and token';
+			Toast.warn('No config found, please set up a config host and token');
+			goto("/app/config")
 			return;
 		}
 		const formData = new FormData(e.target);
@@ -190,7 +192,7 @@
 		</div>
 	{/if}
 	<div class="flex justify-center py-3">
-		<FormBtn width="150px" loading={submitLoading}>Send request →</FormBtn>
+		<FormBtn width="150px" loading={submitLoading}>Send request <ArrowIcon /></FormBtn>
 	</div>
 </form>
 <div class="mt-5 flex flex-col w-full">
