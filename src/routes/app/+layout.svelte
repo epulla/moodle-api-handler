@@ -54,8 +54,10 @@
 	<aside id="menu" class="[grid-area:aside] bg-slate-100 py-5 overflow-auto {openMenuClass}">
 		<Aside></Aside>
 	</aside>
-	<main class="[grid-area:main] w-full max-w-3xl mx-auto px-6 pt-9 overflow-auto">
-		<slot />
+	<main class="[grid-area:main] overflow-auto">
+		<div class="w-full max-w-3xl mx-auto px-6 pt-9">
+			<slot />
+		</div>
 	</main>
 </div>
 

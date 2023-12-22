@@ -4,7 +4,7 @@
 
 <div id="landing" class="relative h-screen grid overflow-hidden">
 	<header class="[grid-area:header]"><LandingHeader></LandingHeader></header>
-	<main class="[grid-area:main]">
+	<main class="[grid-area:main] overflow-auto">
 		<slot />
 	</main>
 </div>
