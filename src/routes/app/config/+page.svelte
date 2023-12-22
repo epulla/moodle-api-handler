@@ -14,12 +14,8 @@
 	};
 	let loading = false;
 
-	$: if ($userDoc) {
-		appConfig = $userDoc.config || {
-			host: '',
-			token: '',
-			updated: ''
-		};
+	$: if ($userDoc && $userDoc.config) {
+		appConfig = $userDoc.config;
 	}
 	const handleSubmit = async () => {
 		try {
