@@ -1,11 +1,12 @@
 # What is?
 
-Moodle API Handler is an open-source tiny app that helps to manage your [API functions from Moodle](https://docs.moodle.org/dev/Web_service_API_functions). Here's what you can do:
+Moodle API Handler is an open-source tiny app that helps to manage your [API functions from Moodle](https://docs.moodle.org/dev/Web_service_API_functions) (you can read more about Moodle WebServices [here]((https://docs.moodle.org/dev/Web_service_API_functions)). Here's what you can do:
 
 > [!IMPORTANT]
 > Users can only authenticate with a Google account.
 
-- Create and save Moodle APIs.
+- Create and save [API functions from Moodle](https://docs.moodle.org/dev/Web_service_API_functions) along with its input fields:
+![Function Page](static/instructions/function_page.png)
 - Make an API request to your hosted Moodle.
 - See a history of calls you made before and their responses.
 - Configure the target Moodle App host and token.
