@@ -1,22 +1,21 @@
-# create-svelte
+# What is?
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Moodle API Handler is an open-source tiny app that helps to manage your [API functions from Moodle](https://docs.moodle.org/dev/Web_service_API_functions). Here's what you can do:
 
-## Creating a project
+- Create and save Moodle APIs.
+- Make an API request to your hosted Moodle.
+- See a history of calls you made before and their responses.
+- Configure the target Moodle App host and token.
+- Share your Moodle APIs to other users.
 
-If you're seeing this, you've probably already done this step. Congrats!
+# Tech Stack
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- Sveltekit as Frontend
+- Firebase as Backend (it uses Google Authentication, 
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+# Installation
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+First, install all the dependencies with `npm install` (or `pnpm install` or `yarn`) and start a development server:
 
 ```bash
 npm run dev
@@ -25,14 +24,14 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+Then, you can add your Firebase public configuration in an `.env` (inside the root folder) file similar as this:
 
-To create a production version of your app:
-
-```bash
-npm run build
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+PUBLIC_FIREBASE_APIKEY='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+PUBLIC_FIREBASE_AUTHDOMAIN='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+PUBLIC_FIREBASE_DATABASEURL='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+PUBLIC_FIREBASE_PROJECTID='xxxxxxxxxxxxxxxxx'
+PUBLIC_FIREBASE_STORAGEBUCKET='xxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+PUBLIC_FIREBASE_MESSAGINGSENDERID='xxxxxxxxxxxx'
+PUBLIC_FIREBASE_APPID='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+```
