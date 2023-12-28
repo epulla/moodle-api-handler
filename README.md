@@ -2,6 +2,9 @@
 
 Moodle API Handler is an open-source tiny app that helps to manage your [API functions from Moodle](https://docs.moodle.org/dev/Web_service_API_functions). Here's what you can do:
 
+> [!IMPORTANT]
+> Users can only authenticate with a Google account.
+
 - Create and save Moodle APIs.
 - Make an API request to your hosted Moodle.
 - See a history of calls you made before and their responses.
@@ -11,7 +14,7 @@ Moodle API Handler is an open-source tiny app that helps to manage your [API fun
 # Tech Stack
 
 - Sveltekit as Frontend
-- Firebase as Backend (it uses Google Authentication, 
+- Firebase as Backend (it uses Google Auth, Firestore, Cloud Storage).
 
 # Installation
 
