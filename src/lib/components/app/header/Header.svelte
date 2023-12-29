@@ -39,7 +39,7 @@
 		</button>
 	</div>
 	<div class="relative flex justify-center items-center text-white h-full">
-		<a href="/docs" class="hover:bg-orange-600 transition h-full px-4 flex items-center">Docs</a>
+		<a href="/app/docs" class="hover:bg-orange-600 transition h-full px-4 flex items-center">Docs</a>
 		<button
 			id="user-btn"
 			class="hover:bg-[#0002] p-1 rounded-full transition"
