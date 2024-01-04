@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This project has been discontinued. However it will remain as open-sourced if anyone want to contribute 😄
+> This project has been discontinued. However it will remain as open-sourced if anyone wants to contribute 😄
 
 # What is?
 
