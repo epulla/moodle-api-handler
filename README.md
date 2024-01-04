@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This project has been discontinued. However it will remain as open-sourced if anyone want to contribute 😄
+
 # What is?
 
 Moodle API Handler is an open-source tiny app that helps to manage your [API functions from Moodle](https://docs.moodle.org/dev/Web_service_API_functions) (you can read more about Moodle WebServices [here](https://docs.moodle.org/dev/Web_service_API_functions)). Here's what you can do:
